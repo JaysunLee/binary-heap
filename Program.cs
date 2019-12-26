@@ -6,7 +6,7 @@ namespace BinaryHeap
     {
         static void Main(string[] args)
         {
-            var heap = new BinaryHeap(8);
+            var heap = new BinaryHeap(1);
             heap.Insert(3);
             heap.Insert(1);
             heap.Insert(6);

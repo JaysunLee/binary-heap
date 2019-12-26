@@ -1,3 +1,5 @@
+using System;
+
 namespace BinaryHeap
 {
     // This is a min-heap.
@@ -19,6 +21,11 @@ namespace BinaryHeap
 
         public void Insert(int value)
         {
+            if (size == heap.Length - 1)
+            {
+                DoubleMaximumSize();
+            }
+
             size++;
             int cursor = size;
 
@@ -31,5 +38,12 @@ namespace BinaryHeap
             heap[cursor] = value;
         }
 
+        private void DoubleMaximumSize()
+        {
+            int newSize = heap.Length * 2;
+            int[] newHeap = new int[newSize];
+            Array.Copy(heap, newHeap, heap.Length);
+            heap = newHeap;
+        }
     }
 }
