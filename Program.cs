@@ -6,7 +6,14 @@ namespace BinaryHeap
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var heap = new BinaryHeap(8);
+            heap.Insert(3);
+            heap.Insert(1);
+            heap.Insert(6);
+            heap.Insert(5);
+            heap.Insert(2);
+            heap.Insert(4);
+            Console.WriteLine(heap.FindMin());
         }
     }
 }
