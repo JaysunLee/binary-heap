@@ -38,6 +38,42 @@ namespace BinaryHeap
             heap[cursor] = value;
         }
 
+        // Pick the "last" value in the heap, and try to insert it at the root.
+        // Continually compare against child nodes whether the new value is valid at the given position,
+        // otherwise copy the child value up and run the comparison until satisfied.
+        public void DeleteMin()
+        {
+            int key = heap[size];
+            heap[1] = 0; // Just a symbolic deletion
+            heap[size] = 0; // Just a symbolic deletion
+            size--;
+
+            // Percolate down
+            int cursor = 1;
+            while (cursor * 2 <= size) // while children exist to make comparisons
+            {
+                int child = cursor * 2;
+
+                // If there are children in bounds and the right is smaller
+                if (child != size && heap[child] > heap[child + 1])
+                {
+                    child++;
+                }
+                // If the key is still too large, continue percolating down
+                if (key > heap[child])
+                {
+                    heap[cursor] = heap[child];
+                }
+                else
+                {
+                    break;
+                }
+                cursor = child;
+            }
+
+            heap[cursor] = key;
+        }
+
         private void DoubleMaximumSize()
         {
             int newSize = heap.Length * 2;

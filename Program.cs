@@ -13,7 +13,10 @@ namespace BinaryHeap
             heap.Insert(5);
             heap.Insert(2);
             heap.Insert(4);
-            Console.WriteLine(heap.FindMin());
+            Console.WriteLine(heap.FindMin()); // 1
+
+            heap.DeleteMin();
+            Console.WriteLine(heap.FindMin()); // 2
         }
     }
 }
