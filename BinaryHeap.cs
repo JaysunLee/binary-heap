@@ -43,9 +43,20 @@ namespace BinaryHeap
         // otherwise copy the child value up and run the comparison until satisfied.
         public void DeleteMin()
         {
+            if (size == 0)
+            {
+                return;
+            }
+            else if (size == 1)
+            {
+                heap[1] = default(int);
+                size = 0;
+                return;
+            }
+
             int key = heap[size];
-            heap[1] = 0; // Just a symbolic deletion
-            heap[size] = 0; // Just a symbolic deletion
+            heap[1] = default(int); // Just a symbolic deletion
+            heap[size] = default(int); // Just a symbolic deletion
             size--;
 
             // Percolate down
