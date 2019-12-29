@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace BinaryHeap
 {
@@ -91,6 +92,20 @@ namespace BinaryHeap
             int[] newHeap = new int[newSize];
             Array.Copy(heap, newHeap, heap.Length);
             heap = newHeap;
+        }
+
+        // This will destroy the heap. 
+        public IEnumerable<int> HeapSort()
+        {
+            List<int> result = new List<int>(size);
+            
+            while (size > 0)
+            {
+                result.Add(FindMin());
+                DeleteMin();
+            }
+
+            return result;
         }
     }
 }

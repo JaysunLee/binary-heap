@@ -17,6 +17,12 @@ namespace BinaryHeap
 
             heap.DeleteMin();
             Console.WriteLine(heap.FindMin()); // 2
+
+            var heapsort = heap.HeapSort();
+            foreach (var i in heapsort)
+            {
+                Console.Write(i + ", ");
+            }
         }
     }
 }
